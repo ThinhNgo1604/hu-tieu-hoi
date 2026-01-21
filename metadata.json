@@ -1,0 +1,7 @@
+{
+  "name": "Hội Hủ Tiếu - Lời Mời Họp Mặt",
+  "description": "Một trang web landing page đầy cảm xúc dành riêng cho thành viên Hội Hủ Tiếu, với hiệu ứng hoa rơi và âm nhạc nhẹ nhàng.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
