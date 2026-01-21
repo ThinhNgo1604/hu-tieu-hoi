@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, MapPin, Calendar, Camera, UserPlus, Star, Heart, X, ChevronLeft, ChevronRight, ExternalLink, Navigation, Utensils } from 'lucide-react';
+import { ChevronDown, MapPin, Calendar, Camera, UserPlus, Star, Heart, X, ChevronLeft, ChevronRight, Navigation, Utensils } from 'lucide-react';
 import FallingFlowers from './components/FallingFlowers';
 import MusicPlayer from './components/MusicPlayer';
 import Countdown from './components/Countdown';
@@ -14,12 +14,12 @@ const App: React.FC = () => {
   const formRef = useRef<HTMLDivElement>(null);
 
   const galleryImages = [
-    'https://lh3.googleusercontent.com/pw/AP1GczOiqsfVE4ii6jrG_yXCn_QJhytHKuPhxOMuyDEc2WulAetTqrvtN3cUObBzHL1d30yyFjOZrSqSEzlX6wNho2Igi3yJc2U6xURuIks5Ja-3MRNVGie9k2suRpa-42TExvufoTNx3pVdNT9aZU3XUIquIA=w708-h945-s-no-gm?authuser=0',
-    'https://lh3.googleusercontent.com/pw/AP1GczMvWsChjfwWx4vD8jagNMbKlBd2MLR6OujdI7KK0DjD5UpzhlUcykzBy-q7htNvteJah9ghP7L8ZKtzuL91_VuXU4ZyuLEXKiK3AazuoP4L-uMixcK1oPVTl_dYuCRkJx1hRBQc1tqVtySGKRFtojbfcQ=w1260-h945-s-no-gm?authuser=0',
-    'https://lh3.googleusercontent.com/pw/AP1GczNLgabpaTq5wAyjdhyB2p0k50RGiyf27q2jbpsj3KPAtydV2Cv-mgK1D2INPSZVzKk3-S46aau6dO9H5E1eLr0VRSRu_lESMbDXYEq1tJKE892-qqWmrecbj6JKLT8-Opyy0ETLhJRP2ulEaESoFH_xnA=w1260-h945-s-no-gm?authuser=0',
+    'https://lh3.googleusercontent.com/pw/AP1GczOiqsfVE4ii6jrG_yXCn_QJhytHKuPhxOMuyDEc2WulAetTqrvtN3cUObBzHL1d30yyFjOZrSqSEzlX6wNho2Igi3yJc2U6xURuIks5Ja-3MRNVGie9k2suRpa-42TExvufoTNx3pVdNT9aZU3XUIquIA=w1600-h1200-s-no-gm?authuser=0',
+    'https://lh3.googleusercontent.com/pw/AP1GczMvWsChjfwWx4vD8jagNMbKlBd2MLR6OujdI7KK0DjD5UpzhlUcykzBy-q7htNvteJah9ghP7L8ZKtzuL91_VuXU4ZyuLEXKiK3AazuoP4L-uMixcK1oPVTl_dYuCRkJx1hRBQc1tqVtySGKRFtojbfcQ=w1600-h1200-s-no-gm?authuser=0',
+    'https://lh3.googleusercontent.com/pw/AP1GczNLgabpaTq5wAyjdhyB2p0k50RGiyf27q2jbpsj3KPAtydV2Cv-mgK1D2INPSZVzKk3-S46aau6dO9H5E1eLr0VRSRu_lESMbDXYEq1tJKE892-qqWmrecbj6JKLT8-Opyy0ETLhJRP2ulEaESoFH_xnA=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczOLAJYqcKVolU37u1JpVBVZJSo_yXby6V-aHDdzjd5WCTf5y5l7wL0BjitpOgAiNgCdPuTpDT3N1RN_cQEA6qWdlVXdcuJ9p2Niqp6u-apvSb4jH_j0gct5bc56vGjF7qY_AayqCm9efPkZ0XSGxZKmBA=w1680-h945-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczObK04MYnD3EIhaW7uk6okdUdYFAqYfRaotHHCYN36ls63_HTniNNzMXd5NhxXUwmzeNy_104-oAsW7l0BSf2iwK4BQ_LepxoP_vdWENY7XjtRJ19VNJ1Vzj7lZ30QyExptjko9K31g_bC7h4K9EGzo0A=w1681-h945-s-no-gm?authuser=0',
-    'https://lh3.googleusercontent.com/pw/AP1GczPghmJ6N9gW1TjJfLZlaB_BMZ7W2V1t1jrNjk-lZnVrkntQaFUQ5_0JCYWmcNM_ajoIClN94fvzjShNbl26v9nM5TMKKaKQAHwY3LShfeOoNMeX7ZoZeMGNrTajQ4AithjfTweajPZ2tDO02zfdqnixxw=w1260-h945-s-no-gm?authuser=0',
+    'https://lh3.googleusercontent.com/pw/AP1GczPghmJ6N9gW1TjJfLZlaB_BMZ7W2V1t1jrNjk-lZnVrkntQaFUQ5_0JCYWmcNM_ajoIClN94fvzjShNbl26v9nM5TMKKaKQAHwY3LShfeOoNMeX7ZoZeMGNrTajQ4AithjfTweajPZ2tDO02zfdqnixxw=w1600-h1200-s-no-gm?authuser=0',
   ];
 
   const placeName = "Giang Ghẹ Tân Bình";
@@ -197,7 +197,7 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <Camera size={48} className="mx-auto text-orange-400" />
-            <h2 className="text-4xl md:text-5xl font-bold font-dancing">Kỷ Niệm Của Chúng Ta</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-dancing text-gray-800">Kỷ Niệm Của Chúng Ta</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Những khoảnh khắc đáng nhớ của Hội Hủ Tiếu qua các năm tháng gắn bó.</p>
           </div>
           
@@ -209,7 +209,7 @@ const App: React.FC = () => {
                 className="group relative aspect-square overflow-hidden rounded-2xl md:rounded-3xl cursor-pointer shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:-rotate-1"
               >
                 <img src={src} alt={`Kỷ niệm ${index + 1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-orange-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-orange-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
                   <Heart className="text-white fill-white animate-pulse" size={40} />
                 </div>
               </div>
@@ -298,51 +298,84 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Lightbox */}
+      {/* Lightbox / Image Preview Overlay */}
       {selectedImageIndex !== null && (
-        <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center animate-fadeIn" onClick={closeLightbox}>
-          <button className="absolute top-6 right-6 text-white hover:text-orange-400 transition-colors" onClick={closeLightbox}>
-            <X size={40} />
-          </button>
-          
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center animate-fadeIn select-none" 
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Close Button */}
           <button 
-            className="absolute left-4 md:left-10 text-white hover:text-orange-400 transition-colors p-2 md:p-4 bg-white/10 rounded-full"
-            onClick={prevImage}
+            className="absolute top-4 right-4 md:top-8 md:right-8 z-[110] text-white/70 hover:text-white transition-all bg-white/10 hover:bg-white/20 p-4 rounded-full shadow-lg" 
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+            title="Đóng (Esc)"
           >
-            <ChevronLeft size={40} />
+            <X size={28} />
           </button>
           
-          <div className="max-w-[90%] max-h-[85vh] relative" onClick={e => e.stopPropagation()}>
-            <img 
-              src={galleryImages[selectedImageIndex]} 
-              className="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain animate-pageEnter"
-              alt="Gallery Preview"
-            />
-            <div className="absolute bottom-[-40px] left-0 right-0 text-center text-white/70 text-sm">
-              Hình ảnh {selectedImageIndex + 1} / {galleryImages.length}
+          {/* Previous Button */}
+          <button 
+            className="absolute left-2 md:left-10 z-[110] text-white/60 hover:text-white transition-all p-4 md:p-6 bg-white/5 hover:bg-white/15 rounded-full group"
+            onClick={prevImage}
+            title="Ảnh trước (Left Arrow)"
+          >
+            <ChevronLeft size={48} className="group-hover:-translate-x-1 transition-transform" />
+          </button>
+          
+          {/* Image Container */}
+          <div 
+            className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-16" 
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="relative max-w-full max-h-full flex flex-col items-center justify-center gap-4">
+              <img 
+                key={selectedImageIndex}
+                src={galleryImages[selectedImageIndex]} 
+                className="max-w-full max-h-[75vh] md:max-h-[85vh] w-auto h-auto rounded-xl shadow-[0_0_60px_rgba(0,0,0,0.8)] object-contain animate-imageAppear border-2 border-white/10"
+                alt={`Kỷ niệm ${selectedImageIndex + 1}`}
+                onContextMenu={(e) => e.preventDefault()}
+              />
+              
+              {/* Pagination Info */}
+              <div className="bg-black/50 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 text-white font-medium tracking-[0.2em] shadow-lg flex items-center gap-3">
+                <span className="text-orange-400 font-bold">{selectedImageIndex + 1}</span>
+                <span className="opacity-30">/</span>
+                <span className="opacity-80">{galleryImages.length}</span>
+              </div>
             </div>
           </div>
           
+          {/* Next Button */}
           <button 
-            className="absolute right-4 md:right-10 text-white hover:text-orange-400 transition-colors p-2 md:p-4 bg-white/10 rounded-full"
+            className="absolute right-2 md:right-10 z-[110] text-white/60 hover:text-white transition-all p-4 md:p-6 bg-white/5 hover:bg-white/15 rounded-full group"
             onClick={nextImage}
+            title="Ảnh sau (Right Arrow)"
           >
-            <ChevronRight size={40} />
+            <ChevronRight size={48} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       )}
 
       <style>{`
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes imageAppear { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
         @keyframes pageEnter { from { opacity: 0; transform: scale(1.02); } to { opacity: 1; transform: scale(1); } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
-        .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+        
+        .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
+        .animate-imageAppear { animation: imageAppear 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
         .animate-pageEnter { animation: pageEnter 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
         .animate-slideUp { animation: slideUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
         .animate-float { animation: float 4s ease-in-out infinite; }
-        .animate-slowZoom { animation: slowZoom 15s linear infinite alternate; }
+        .animate-slowZoom { animation: slowZoom 20s linear infinite alternate; }
+
+        /* Lightbox visual polish */
+        button { outline: none !important; }
+        img { image-rendering: -webkit-optimize-contrast; }
       `}</style>
     </div>
   );
