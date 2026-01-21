@@ -22,7 +22,7 @@ const MusicPlayer: React.FC = () => {
       <audio
         ref={audioRef}
         loop
-        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        src="https://thinhngo1604.github.io/hu-tieu-hoi/baicaanhem.mp3"
       />
       
       <div className="relative group">
