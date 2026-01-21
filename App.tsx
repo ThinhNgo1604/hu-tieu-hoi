@@ -13,12 +13,12 @@ const App: React.FC = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
- const galleryImages = [
+  const galleryImages = [
     'https://lh3.googleusercontent.com/pw/AP1GczOiqsfVE4ii6jrG_yXCn_QJhytHKuPhxOMuyDEc2WulAetTqrvtN3cUObBzHL1d30yyFjOZrSqSEzlX6wNho2Igi3yJc2U6xURuIks5Ja-3MRNVGie9k2suRpa-42TExvufoTNx3pVdNT9aZU3XUIquIA=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczMvWsChjfwWx4vD8jagNMbKlBd2MLR6OujdI7KK0DjD5UpzhlUcykzBy-q7htNvteJah9ghP7L8ZKtzuL91_VuXU4ZyuLEXKiK3AazuoP4L-uMixcK1oPVTl_dYuCRkJx1hRBQc1tqVtySGKRFtojbfcQ=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczNLgabpaTq5wAyjdhyB2p0k50RGiyf27q2jbpsj3KPAtydV2Cv-mgK1D2INPSZVzKk3-S46aau6dO9H5E1eLr0VRSRu_lESMbDXYEq1tJKE892-qqWmrecbj6JKLT8-Opyy0ETLhJRP2ulEaESoFH_xnA=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczOLAJYqcKVolU37u1JpVBVZJSo_yXby6V-aHDdzjd5WCTf5y5l7wL0BjitpOgAiNgCdPuTpDT3N1RN_cQEA6qWdlVXdcuJ9p2Niqp6u-apvSb4jH_j0gct5bc56vGjF7qY_AayqCm9efPkZ0XSGxZKmBA=w1680-h945-s-no-gm?authuser=0',
-    'https://lh3.googleusercontent.com/pw/AP1GczObK04MYnD3EIhaW7uk6okdUdYFAqYfRaotHHCYN36ls63_HTniNNzMXd5NhxXUwmzeNy_104-oAsW7l0BSf2iwK4BQ_LepxoP_vdWENY7XjtRJ19VNJ1Vzj7lZ30QyExptjko9K31g_bC7h4K9EGzo0A=w1681-h945-s-no-gm?authuser=0',
+    'https://images.unsplash.com/photo-1559739031-0774678eb806?q=80&w=1600&auto=format&fit=crop',
     'https://lh3.googleusercontent.com/pw/AP1GczPghmJ6N9gW1TjJfLZlaB_BMZ7W2V1t1jrNjk-lZnVrkntQaFUQ5_0JCYWmcNM_ajoIClN94fvzjShNbl26v9nM5TMKKaKQAHwY3LShfeOoNMeX7ZoZeMGNrTajQ4AithjfTweajPZ2tDO02zfdqnixxw=w1600-h1200-s-no-gm?authuser=0',
   ];
 
@@ -120,9 +120,13 @@ const App: React.FC = () => {
           </div>
           <button
             onClick={handleOpenInvitation}
-            className="mt-10 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 mx-auto"
+            className="mt-10 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 md:py-4 px-10 rounded-3xl md:rounded-full text-xl shadow-lg transform transition hover:scale-105 active:scale-95 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 mx-auto"
           >
-            Mở Thiệp Tham Gia <ChevronDown size={24} className="animate-bounce" />
+            <div className="flex flex-col md:flex-row items-center leading-tight">
+              <span>Mở Thiệp</span>
+              <span className="md:ml-2">Tham Gia</span>
+            </div>
+            <ChevronDown size={28} className="animate-bounce mt-1 md:mt-0" />
           </button>
         </div>
       </div>
@@ -132,7 +136,7 @@ const App: React.FC = () => {
   return (
     <>
       <FallingFlowers />
-      <MusicPlayer />
+      <MusicPlayer autoPlay={showMainPage} />
 
       <div className="relative min-h-screen bg-orange-50 overflow-x-hidden">
         <div className="animate-pageEnter">
@@ -203,7 +207,7 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 <div className="md:w-1/2 w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border-8 border-orange-50">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.167236545759!2d106.6326255757362!3d10.8062350893441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295a2caa9981%3A0x7ad5924d0883e3f7!2sGiang%20Gh%E1%BA%B9%20T%C3%A2n%20B%C3%ACnh!5e0!3m2!1svi!2s!4v1705300000000!5m2!1svi!2s" width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.167236545759!2d106.6326255757362!3d10.8062350893441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295a2caa9981%3A0x7ad5924d0883e3f7!2sGiang%20Gh%E1%BA%B9%20T%C3%A2n+B%C3%ACnh!5e0!3m2!1svi!2s!4v1705300000000!5m2!1svi!2s" width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy"></iframe>
                 </div>
               </div>
             </div>
