@@ -13,6 +13,7 @@
       body {
         font-family: 'Quicksand', sans-serif;
         scroll-behavior: smooth;
+        margin: 0;
       }
       .font-dancing {
         font-family: 'Dancing Script', cursive;
@@ -20,7 +21,6 @@
       .font-pacifico {
         font-family: 'Pacifico', cursive;
       }
-      /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -31,26 +31,23 @@
         background: #ff8c42;
         border-radius: 10px;
       }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #e67e22;
-      }
     </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3"
-      }
-    }
-    </script>
-    <!-- Thêm dòng này để trình duyệt nạp code React -->
-    <script type="module" src="./index.tsx"></script>
-  <link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
   <body class="bg-orange-50 text-gray-800 overflow-x-hidden">
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
