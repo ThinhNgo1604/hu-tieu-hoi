@@ -1,10 +1,25 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { VolumeX, Volume2, Music } from 'lucide-react';
 
-const MusicPlayer: React.FC = () => {
+interface MusicPlayerProps {
+  autoPlay?: boolean;
+}
+
+const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlay }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Kích hoạt chơi nhạc khi autoPlay chuyển sang true
+  useEffect(() => {
+    if (autoPlay && audioRef.current && !isPlaying) {
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(e => {
+        console.log("Autoplay blocked by browser. User interaction needed.", e);
+      });
+    }
+  }, [autoPlay]);
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -19,14 +34,14 @@ const MusicPlayer: React.FC = () => {
 
   return (
     <div className="fixed bottom-8 right-6 md:bottom-10 md:right-10 z-[9999]">
+      {/* Sử dụng một file MP3 trực tiếp để đảm bảo tính ổn định hơn là link SoundCloud thô */}
       <audio
         ref={audioRef}
         loop
-        src="https://thinhngo1604.github.io/hu-tieu-hoi/baicaanhem.mp3"
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
       />
       
       <div className="relative group">
-        {/* Nút chính với hiệu ứng lơ lửng bám theo màn hình */}
         <button
           onClick={togglePlay}
           className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.3)] backdrop-blur-md transition-all duration-500 transform hover:scale-110 active:scale-95 animate-floating-music border-2 ${
@@ -48,7 +63,6 @@ const MusicPlayer: React.FC = () => {
           )}
         </button>
 
-        {/* Nốt nhạc bay */}
         {isPlaying && (
           <div className="absolute inset-0 pointer-events-none">
             <Music size={16} className="absolute -top-10 left-2 text-orange-400 animate-note-1 opacity-0" />
@@ -56,7 +70,6 @@ const MusicPlayer: React.FC = () => {
           </div>
         )}
 
-        {/* Tooltip */}
         <div className="absolute bottom-full right-0 mb-4 bg-gray-900/90 backdrop-blur-sm text-white px-4 py-2 rounded-xl text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-2xl border border-white/10">
           {isPlaying ? 'Tắt nhạc' : 'Bật nhạc chill'}
         </div>
