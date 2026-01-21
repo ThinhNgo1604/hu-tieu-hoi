@@ -18,7 +18,7 @@ const App: React.FC = () => {
     'https://lh3.googleusercontent.com/pw/AP1GczMvWsChjfwWx4vD8jagNMbKlBd2MLR6OujdI7KK0DjD5UpzhlUcykzBy-q7htNvteJah9ghP7L8ZKtzuL91_VuXU4ZyuLEXKiK3AazuoP4L-uMixcK1oPVTl_dYuCRkJx1hRBQc1tqVtySGKRFtojbfcQ=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczNLgabpaTq5wAyjdhyB2p0k50RGiyf27q2jbpsj3KPAtydV2Cv-mgK1D2INPSZVzKk3-S46aau6dO9H5E1eLr0VRSRu_lESMbDXYEq1tJKE892-qqWmrecbj6JKLT8-Opyy0ETLhJRP2ulEaESoFH_xnA=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczOLAJYqcKVolU37u1JpVBVZJSo_yXby6V-aHDdzjd5WCTf5y5l7wL0BjitpOgAiNgCdPuTpDT3N1RN_cQEA6qWdlVXdcuJ9p2Niqp6u-apvSb4jH_j0gct5bc56vGjF7qY_AayqCm9efPkZ0XSGxZKmBA=w1680-h945-s-no-gm?authuser=0',
-    'https://images.unsplash.com/photo-1559739031-0774678eb806?q=80&w=1600&auto=format&fit=crop',
+    'https://lh3.googleusercontent.com/pw/AP1GczM8lAzAfIF9CT3VABLRogO_t90fmmefED_EqEA34MgmQNQ-1vxQ3zS-1LKUyGQ34xk_gU4K2vkCIuKWVCri0Dwz4_0GBMLpiI9aKpEvA4o9Cl0Y2XrDTtHEMhHu_WRZ6XkRjqSW-8uRTAUc3r38RCpdTA=w1040-h780-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczPghmJ6N9gW1TjJfLZlaB_BMZ7W2V1t1jrNjk-lZnVrkntQaFUQ5_0JCYWmcNM_ajoIClN94fvzjShNbl26v9nM5TMKKaKQAHwY3LShfeOoNMeX7ZoZeMGNrTajQ4AithjfTweajPZ2tDO02zfdqnixxw=w1600-h1200-s-no-gm?authuser=0',
   ];
 
