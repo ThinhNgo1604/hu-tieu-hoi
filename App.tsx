@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
-  const galleryImages = [
+ const galleryImages = [
     'https://lh3.googleusercontent.com/pw/AP1GczOiqsfVE4ii6jrG_yXCn_QJhytHKuPhxOMuyDEc2WulAetTqrvtN3cUObBzHL1d30yyFjOZrSqSEzlX6wNho2Igi3yJc2U6xURuIks5Ja-3MRNVGie9k2suRpa-42TExvufoTNx3pVdNT9aZU3XUIquIA=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczMvWsChjfwWx4vD8jagNMbKlBd2MLR6OujdI7KK0DjD5UpzhlUcykzBy-q7htNvteJah9ghP7L8ZKtzuL91_VuXU4ZyuLEXKiK3AazuoP4L-uMixcK1oPVTl_dYuCRkJx1hRBQc1tqVtySGKRFtojbfcQ=w1600-h1200-s-no-gm?authuser=0',
     'https://lh3.googleusercontent.com/pw/AP1GczNLgabpaTq5wAyjdhyB2p0k50RGiyf27q2jbpsj3KPAtydV2Cv-mgK1D2INPSZVzKk3-S46aau6dO9H5E1eLr0VRSRu_lESMbDXYEq1tJKE892-qqWmrecbj6JKLT8-Opyy0ETLhJRP2ulEaESoFH_xnA=w1600-h1200-s-no-gm?authuser=0',
@@ -37,14 +37,35 @@ const App: React.FC = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleRegistration = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleRegistration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      wish: '', 
+    };
+
+    try {
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRMqR1u-r7EVaHCGTQzL7U0coTDYnh0T0mAmLsqAYEH47-enhMukiu_i0c7JhyGB4Ang/exec"; 
+
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
       setIsSubmitting(false);
       setFormSuccess(true);
-      setTimeout(() => setFormSuccess(false), 5000);
-    }, 1500);
+      setTimeout(() => setFormSuccess(false), 8000);
+    } catch (error) {
+      console.error("Lỗi gửi form:", error);
+      setIsSubmitting(false);
+      alert("Đã có lỗi xảy ra khi kết nối với máy chủ. Vui lòng thử lại!");
+    }
   };
 
   const openLightbox = (index: number) => {
@@ -110,14 +131,11 @@ const App: React.FC = () => {
 
   return (
     <>
-      {/* UI FIXED ELEMENTS - Bám màn hình tuyệt đối */}
       <FallingFlowers />
       <MusicPlayer />
 
-      {/* Main Content Scrollable */}
       <div className="relative min-h-screen bg-orange-50 overflow-x-hidden">
         <div className="animate-pageEnter">
-          {/* Hero Section */}
           <section className="relative h-screen flex flex-col items-center justify-center text-center overflow-hidden">
             <div className="absolute inset-0 z-0">
               <img 
@@ -134,7 +152,6 @@ const App: React.FC = () => {
                 Hội Hủ Tiếu
               </h1>
               
-              {/* 5 NGÔI SAO LẤP LÁNH DƯỚI TITLE CHÍNH */}
               <div className="flex justify-center gap-2 md:gap-4 mb-10 animate-slideUp [animation-delay:350ms]">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star 
@@ -156,17 +173,18 @@ const App: React.FC = () => {
             </div>
           </section>
 
-          {/* Countdown Section */}
           <section className="py-24 px-6 bg-gradient-to-br from-orange-400 to-red-500 relative overflow-hidden">
-            <div className="max-w-4xl mx-auto text-center relative z-10 text-white">
+            <div className="max-w-4xl mx-auto text-center relative z-10 text-white px-2">
               <Calendar size={60} className="mx-auto mb-6 text-white/80" />
               <h2 className="text-4xl md:text-5xl font-bold mb-4 font-dancing">Sự Kiện Đặc Biệt</h2>
-              <p className="text-2xl md:text-3xl font-light mb-12 opacity-90">Hẹn gặp bạn vào: <span className="font-bold border-b-2 border-white/50">31 Tháng 01, 2026</span></p>
+              <p className="text-2xl md:text-3xl font-light mb-12 opacity-90 leading-snug">
+                Hẹn gặp lại bạn vào: <br className="block md:hidden" />
+                <span className="font-bold border-b-2 border-white/50 inline-block mt-2 md:mt-0">31 tháng 01. 2026</span>
+              </p>
               <Countdown />
             </div>
           </section>
 
-          {/* Location Section */}
           <section className="py-24 px-6 bg-white relative">
             <div className="max-w-5xl mx-auto">
               <div className="flex flex-col md:flex-row items-center gap-12">
@@ -174,7 +192,9 @@ const App: React.FC = () => {
                   <div className="inline-flex items-center gap-2 text-orange-500 font-bold uppercase tracking-widest text-sm">
                     <MapPin size={20} /> Địa Điểm Tụ Họp
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">{placeName}</h2>
+                  <h2 className="text-4xl md:text-5xl font-dancing font-bold text-gray-900 leading-tight animate-softFloat drop-shadow-sm">
+                    {placeName}
+                  </h2>
                   <p className="text-xl text-gray-600 leading-relaxed">{detailedAddress}</p>
                   <div className="pt-6">
                     <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-orange-100 text-orange-600 font-bold py-4 px-8 rounded-2xl hover:bg-orange-200 transition-colors w-full justify-center md:w-auto">
@@ -189,7 +209,6 @@ const App: React.FC = () => {
             </div>
           </section>
 
-          {/* Gallery Section */}
           <section className="py-24 px-6 bg-orange-50">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16 space-y-4">
@@ -209,35 +228,64 @@ const App: React.FC = () => {
             </div>
           </section>
 
-          {/* RSVP Section */}
           <section ref={formRef} className="py-24 px-6 bg-white">
             <div className="max-w-xl mx-auto bg-white rounded-[40px] shadow-[0_20px_60px_-15px_rgba(255,140,66,0.2)] p-8 md:p-12 border border-orange-100">
               <div className="text-center mb-10">
                 <UserPlus size={48} className="mx-auto text-orange-500 mb-4" />
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">Tham Gia Ngay</h2>
+                <p className="text-gray-500">Vui lòng để lại thông tin để Hội sắp xếp chu đáo nhất!</p>
               </div>
               {formSuccess ? (
                 <div className="text-center py-10 animate-fadeIn">
-                  <Heart fill="#f97316" size={60} className="mx-auto mb-6 text-orange-500" />
-                  <h3 className="text-2xl font-bold">Đăng Ký Thành Công!</h3>
+                  <div className="relative inline-block">
+                    <Heart fill="#f97316" size={80} className="mx-auto mb-6 text-orange-500 animate-pulse" />
+                    <Star size={24} fill="#fbbf24" className="absolute -top-2 -right-2 text-amber-400 animate-bounce" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">Đăng Ký Thành Công!</h3>
+                  <p className="text-gray-600 mt-2">Cảm ơn bạn, Hội đã nhận được thông tin. Hẹn sớm gặp lại bạn!</p>
                 </div>
               ) : (
                 <form onSubmit={handleRegistration} className="space-y-6">
-                  <input required type="text" placeholder="Họ và Tên" className="w-full bg-orange-50/50 border-2 border-orange-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all" />
-                  <input required type="tel" placeholder="Số Điện Thoại" className="w-full bg-orange-50/50 border-2 border-orange-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all" />
-                  <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-5 rounded-2xl text-xl shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform">
-                    {isSubmitting ? <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div> : "Xác Nhận Tham Gia"}
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-gray-700 ml-2">Tên của bạn</label>
+                    <input 
+                      name="name" 
+                      required 
+                      type="text" 
+                      placeholder="Ví dụ: Nguyễn Anh Đen" 
+                      title="Ví dụ: Nguyễn Anh Đen"
+                      className="w-full bg-orange-50/50 border-2 border-orange-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-gray-700 ml-2">Số điện thoại</label>
+                    <input 
+                      name="phone" 
+                      required 
+                      type="text" 
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      onInput={(e) => (e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''))}
+                      placeholder="Ví dụ: 0901234567" 
+                      className="w-full bg-orange-50/50 border-2 border-orange-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all" 
+                    />
+                  </div>
+                  <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-5 rounded-2xl text-xl shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform hover:shadow-orange-200 hover:shadow-2xl">
+                    {isSubmitting ? (
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Đang gửi thông tin...</span>
+                      </div>
+                    ) : "Xác Nhận Tham Gia"}
                   </button>
                 </form>
               )}
             </div>
           </section>
 
-          {/* Footer */}
           <footer className="py-16 bg-gray-900 text-white text-center">
             <h2 className="font-pacifico text-4xl mb-4 text-orange-400">Hội Hủ Tiếu</h2>
             
-            {/* 5 NGÔI SAO TRÊN DÒNG BẢN QUYỀN */}
             <div className="flex justify-center gap-2 mb-6">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star 
@@ -255,7 +303,6 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* LIGHTBOX - CĂN GIỮA SCREEN TUYỆT ĐỐI */}
       {selectedImageIndex !== null && (
         <div 
           className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-md flex items-center justify-center animate-fadeIn select-none overflow-hidden" 
@@ -305,6 +352,10 @@ const App: React.FC = () => {
         }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes softFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
         @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
         @keyframes starTwinkle {
           0%, 100% { opacity: 0.7; transform: scale(1); filter: brightness(1); }
@@ -316,6 +367,7 @@ const App: React.FC = () => {
         .animate-pageEnter { animation: pageEnter 1s ease-out forwards; }
         .animate-slideUp { animation: slideUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
         .animate-float { animation: float 4s ease-in-out infinite; }
+        .animate-softFloat { animation: softFloat 3s ease-in-out infinite; }
         .animate-slowZoom { animation: slowZoom 20s linear infinite alternate; }
         .animate-star-twinkle { animation: starTwinkle 2.5s ease-in-out infinite; }
       `}</style>
