@@ -22,9 +22,9 @@ const App: React.FC = () => {
     'https://lh3.googleusercontent.com/pw/AP1GczPghmJ6N9gW1TjJfLZlaB_BMZ7W2V1t1jrNjk-lZnVrkntQaFUQ5_0JCYWmcNM_ajoIClN94fvzjShNbl26v9nM5TMKKaKQAHwY3LShfeOoNMeX7ZoZeMGNrTajQ4AithjfTweajPZ2tDO02zfdqnixxw=w1600-h1200-s-no-gm?authuser=0',
   ];
 
-  const placeName = "Giang Ghẹ Tân Bình";
-  const detailedAddress = "680 Đ. Trường Chinh, Phường 15, Tân Bình, Thành phố Hồ Chí Minh";
-  const googleMapsUrl = "https://www.google.com/maps/place/Giang+Gh%E1%BA%B9+T%C3%A2n+B%C3%ACnh/@10.8060675,106.633694,17.45z/data=!4m15!1m8!3m7!1s0x3175295a2caa99fb:0x48634e3400189849!2zNjgwIMSQLiBUcsaw4budbmcgQ2hpbmgsIFBoxrDhu51uZyBUw6JuIELDrG5oLCBUw6JuIELDrG5oLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmggNzAwMDAwLCBWaeG7h3QgTmFt!3b1!8m2!3d10.8063285!4d106.6353962!16s%2Fg%2F11xvmgpq61!3m5!1s0x3175295a2caa9981:0x7ad5924d0883e3f7!8m2!3d10.8062351!4d106.6352005!16s%2Fg%2F11by_n85ss?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D";
+  const placeName = "Quán Đường phố";
+  const detailedAddress = "1191 Hoàng Sa, phường tân sơn nhất, Thành phố Hồ Chí Minh";
+  const googleMapsUrl = "https://www.google.com/maps/place/Qu%C3%A1n+%C4%90%C6%B0%E1%BB%9Dng+ph%E1%BB%91/@10.7904613,106.6627405,17z/data=!3m1!4b1!4m6!3m5!1s0x31752ed2ae036151:0xd8f668ef77b005b1!8m2!3d10.790456!4d106.6653154!16s%2Fg%2F1hc3zpv3x?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D";
 
   const handleOpenInvitation = () => {
     setIsTransitioning(true);
@@ -207,7 +207,7 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 <div className="md:w-1/2 w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border-8 border-orange-50">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.167236545759!2d106.6326255757362!3d10.8062350893441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295a2caa9981%3A0x7ad5924d0883e3f7!2sGiang%20Gh%E1%BA%B9%20T%C3%A2n+B%C3%ACnh!5e0!3m2!1svi!2s!4v1705300000000!5m2!1svi!2s" width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2638367527663!2d106.6627405!3d10.7904613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2ae036151%3A0xd8f668ef77b005b1!2zUXXDoW4gxJDGsOG7nW5nIHBo4buR!5e0!3m2!1svi!2s!4v1737600000000!5m2!1svi!2s" width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy"></iframe>
                 </div>
               </div>
             </div>
